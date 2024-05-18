@@ -1,4 +1,7 @@
 from flask import Flask
+from flask import Response
+import json 
+from flask import jsonify
 
 #create app obj
 app = Flask(__name__)
@@ -14,8 +17,17 @@ def hello_world():
 #get quiz data
 @app.route("/quiz/get/<name>", methods = ["GET"])
 def get_quiz(name): 
-
-    #check if quiz exists 
-        #if so return the relevant info 
-        #else throw an error 
-    x = 1 
+    
+    #try catch to deal with bad name
+    try: 
+        #open the file
+        f = open("./Qs/"+name+".json")
+    except FileNotFoundError: 
+        #if name not found pass a special message to the front end
+        return {"message": "FileNotFound"}
+    
+    #load the actual json data
+    obj = json.load(f)
+    
+    #return the json data
+    return obj
