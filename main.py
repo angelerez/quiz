@@ -1,5 +1,6 @@
 from flask import Flask
 
+#create app obj
 app = Flask(__name__)
 
 @app.route("/")
