@@ -1,0 +1,8 @@
+[
+    {
+        "prompt": "Who is the president?", 
+        "options": ["Joe", "Donald", "Barack"], 
+        "answer": "Joe", 
+        "time": 10
+    }
+]
